@@ -48,7 +48,7 @@ RUN sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php5/fpm/php.ini
 
 # Generate selfsigned certificate
 RUN mkdir /etc/nginx/ssl
-RUN printf "ES\\nCYL\\nValladolid\\nOwncloud\\nDocker\\nyour.server.com\\n\\n" | openssl req -new -newkey rsa:2048 -days 3650 -nodes -x509 -keyout /etc/apache2/ssl/server.key -out /etc/apache2/ssl/server.crt
+RUN printf "ES\\nCYL\\nValladolid\\nOwncloud\\nDocker\\ndocker.oc.server\\n\\n" | openssl req -new -newkey rsa:2048 -days 3650 -nodes -x509 -keyout /etc/nginx/ssl/server.key -out /etc/nginx/ssl/server.crt
 
 # Configure nginx to run owncloud
 RUN rm /etc/nginx/sites-enabled/default
